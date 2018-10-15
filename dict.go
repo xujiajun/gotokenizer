@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// DefaultMinTokenLen is default minimum tokenLen
 var DefaultMinTokenLen = 2
 
 // DictRecord records dict meta info

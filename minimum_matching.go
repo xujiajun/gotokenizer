@@ -4,11 +4,13 @@ import (
 	"strings"
 )
 
+// MinMatch records dict and dictPath
 type MinMatch struct {
 	dict     *Dict
 	dictPath string
 }
 
+// NewMinMatch returns a newly initialized MinMatch object
 func NewMinMatch(dictPath string) *MinMatch {
 	return &MinMatch{
 		dictPath: dictPath,
