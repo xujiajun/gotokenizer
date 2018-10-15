@@ -1,4 +1,4 @@
-# go-tokenizer
+# go-tokenizer <a href="https://travis-ci.org/xujiajun/go-tokenizer"><img src="https://travis-ci.org/xujiajun/go-tokenizer.svg?branch=master" alt="Build Status"></a>
 A tokenizer for Go. (Now only support chinese segmentation)
 
 ## Motivation
