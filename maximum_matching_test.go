@@ -8,7 +8,7 @@ import (
 
 var (
 	expectedForForwardMaxMatch = "中华人民共和国/万岁/万岁/万万岁"
-	mm                      = NewMaxMatch(dictZhPath)
+	mm                         = NewMaxMatch(dictZhPath)
 )
 
 func TestMaxMatch_Get(t *testing.T) {

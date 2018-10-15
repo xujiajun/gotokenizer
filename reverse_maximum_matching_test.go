@@ -4,12 +4,11 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
 )
 
 var (
-	rmm         = NewReverseMaxMatch(dictZhPath)
-	expected    = "中华人民共和国/万岁/万岁/万万岁"
+	rmm      = NewReverseMaxMatch(dictZhPath)
+	expected = "中华人民共和国/万岁/万岁/万万岁"
 )
 
 func TestReverseMaxMatch_Get(t *testing.T) {

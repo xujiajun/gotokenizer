@@ -8,7 +8,7 @@ import (
 
 var (
 	expectedForForwardMinMatch = "中华/人民/共和/国/万岁/万岁/万万/岁"
-	fmm                      = NewMinMatch(dictZhPath)
+	fmm                        = NewMinMatch(dictZhPath)
 )
 
 func TestMinMatch_Get(t *testing.T) {

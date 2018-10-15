@@ -1,16 +1,15 @@
 package go_tokenizer
 
 import (
-	"testing"
-	"strings"
 	"reflect"
+	"strings"
+	"testing"
 )
 
 var (
 	expectedForBiDirectionalMaxMatch = "这/几块/地/面积/还/真/不小"
-	bdmm =  NewBiDirectionalMaxMatch(dictZhPath, bigramDictPath)
+	bdmm                             = NewBiDirectionalMaxMatch(dictZhPath, bigramDictPath)
 )
-
 
 func TestBiDirectionalMaxMatch_Get(t *testing.T) {
 	bdmm.LoadDict()
@@ -38,7 +37,7 @@ func TestBiDirectionalMaxMatch_Get(t *testing.T) {
 func TestBiDirectionalMaxMatch_GetFrequency(t *testing.T) {
 	bdmm.LoadDict()
 
-	reality,err := bdmm.GetFrequency(textForBiDirectionalMatch)
+	reality, err := bdmm.GetFrequency(textForBiDirectionalMatch)
 	checkErr(err, t)
 
 	result := strings.Split(expectedForBiDirectionalMaxMatch, sep)
