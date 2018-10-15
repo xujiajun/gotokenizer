@@ -10,12 +10,14 @@ import (
 
 var DefaultMinTokenLen = 2
 
+// DictRecord records dict meta info
 type DictRecord struct {
 	TF    string
 	Token string
 	POS   string //part of speech
 }
 
+// Dict records Records and DictPath etc.
 type Dict struct {
 	Records     map[string]DictRecord
 	minTokenLen int
@@ -24,6 +26,7 @@ type Dict struct {
 	isLoaded    bool
 }
 
+// NewDict returns a newly initialized Dict object
 func NewDict(dictPath string) *Dict {
 	return &Dict{
 		Records:     make(map[string]DictRecord),
@@ -33,6 +36,7 @@ func NewDict(dictPath string) *Dict {
 	}
 }
 
+// Load that loads Dict
 func (dict *Dict) Load() error {
 	if dict.isLoaded {
 		return errors.New("dict isLoaded")
