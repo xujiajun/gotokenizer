@@ -17,7 +17,7 @@ func Reverse(s []string) []string {
 }
 
 func GetFrequency(result []string) map[string]int {
-	resultMap := make(map[string]int)
+	resultMap := make(map[string]int, len(result))
 
 	for _, v := range result {
 		if _, ok := resultMap[v]; ok {
