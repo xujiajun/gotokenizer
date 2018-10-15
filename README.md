@@ -1,5 +1,5 @@
 # gotokenizer [![GoDoc](https://godoc.org/github.com/xujiajun/gotokenizer?status.svg)](https://godoc.org/github.com/xujiajun/gotokenizer) <a href="https://travis-ci.org/xujiajun/gotokenizer"><img src="https://travis-ci.org/xujiajun/gotokenizer.svg?branch=master" alt="Build Status"></a> [![Coverage Status](https://coveralls.io/repos/github/xujiajun/gotokenizer/badge.svg?branch=master)](https://coveralls.io/github/xujiajun/gotokenizer?branch=master) [![Go Report Card](https://goreportcard.com/badge/github.com/xujiajun/gotokenizer)](https://goreportcard.com/report/github.com/xujiajun/gotokenizer) [![License](https://img.shields.io/badge/license-Apache2.0-blue.svg?style=flat-square)](https://opensource.org/licenses/Apache-2.0)
-A tokenizer for Go. (Now only support chinese segmentation)
+A tokenizer based on the dictionary and Bigram language models for Golang.  (Now only support chinese segmentation)
 
 ## Motivation
 
