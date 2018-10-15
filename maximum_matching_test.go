@@ -1,4 +1,4 @@
-package go_tokenizer
+package gotokenizer
 
 import (
 	"reflect"

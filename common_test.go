@@ -1,4 +1,4 @@
-package go_tokenizer
+package gotokenizer
 
 var (
 	dictZhPath                = "data/zh/dict.txt"
