@@ -11,7 +11,6 @@ var (
 	bminm                          = NewReverseMinMatch(dictZhPath)
 )
 
-
 func TestReverseMinMatch_Get(t *testing.T) {
 	bminm.LoadDict()
 	result, err := bminm.Get(zhText)

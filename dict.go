@@ -54,7 +54,7 @@ func (dict *Dict) Load() error {
 
 		res := strings.Split(string(a), " ")
 
-		var TF,pos string
+		var TF, pos string
 
 		token := res[0]
 
@@ -67,7 +67,6 @@ func (dict *Dict) Load() error {
 		if currLen > dict.maxLen {
 			dict.maxLen = currLen
 		}
-
 
 		if len([]rune(token)) >= dict.minTokenLen {
 			dict.Records[token] = DictRecord{

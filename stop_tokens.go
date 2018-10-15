@@ -1,14 +1,14 @@
 package go_tokenizer
 
 import (
-	"os"
-	"io"
 	"bufio"
+	"io"
+	"os"
 )
 
 type StopTokens struct {
-	path string
-	records map[string]bool
+	path     string
+	records  map[string]bool
 	IsLoaded bool
 }
 
@@ -18,7 +18,7 @@ func NewStopTokens() *StopTokens {
 	}
 }
 
-func (st *StopTokens)Load(path string) error  {
+func (st *StopTokens) Load(path string) error {
 	if st.IsLoaded {
 		return nil
 	}
@@ -37,7 +37,7 @@ func (st *StopTokens)Load(path string) error  {
 		}
 		st.records[string(a)] = true
 	}
-	st.records[" "]= true
+	st.records[" "] = true
 	st.IsLoaded = true
 
 	return nil

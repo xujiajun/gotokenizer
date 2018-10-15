@@ -9,7 +9,6 @@ type MinMatch struct {
 	dictPath string
 }
 
-
 func NewMinMatch(dictPath string) *MinMatch {
 	return &MinMatch{
 		dictPath: dictPath,
