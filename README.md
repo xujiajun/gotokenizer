@@ -12,6 +12,7 @@ I wanted a simple tokenizer that has no unnecessary overhead using the standard 
 * Support Reverse Maximum Matching
 * Support Reverse Minimum Matching
 * Support Bidirectional Maximum Matching
+* Support Bidirectional Minimum Matching
 * Support using Stop Tokens
 
 ## Usage
