@@ -4,22 +4,26 @@ import (
 	"strings"
 )
 
+// ReverseMinMatch records dict and dictPath
 type ReverseMinMatch struct {
 	dict     *Dict
 	dictPath string
 }
 
+// NewReverseMinMatch returns a newly initialized ReverseMinMatch object
 func NewReverseMinMatch(dictPath string) *ReverseMinMatch {
 	return &ReverseMinMatch{
 		dictPath: dictPath,
 	}
 }
 
+// LoadDict loads dict that implements the Tokenizer interface
 func (rmm *ReverseMinMatch) LoadDict() error {
 	rmm.dict = NewDict(rmm.dictPath)
 	return rmm.dict.Load()
 }
 
+// Get returns segmentation that implements the Tokenizer interface
 func (rmm *ReverseMinMatch) Get(text string) ([]string, error) {
 
 	CheckDictIsLoaded(rmm.dict)
@@ -66,6 +70,7 @@ func (rmm *ReverseMinMatch) Get(text string) ([]string, error) {
 	return Reverse(result), nil
 }
 
+// GetFrequency returns token frequency that implements the Tokenizer interface
 func (rmm *ReverseMinMatch) GetFrequency(text string) (map[string]int, error) {
 	result, err := rmm.Get(text)
 

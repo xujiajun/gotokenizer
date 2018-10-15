@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// BiDirectionalMinMatch records dict and bigramDic etc.
 type BiDirectionalMinMatch struct {
 	dict           *Dict
 	dictPath       string
@@ -15,6 +16,7 @@ type BiDirectionalMinMatch struct {
 	RMM            *ReverseMinMatch
 }
 
+// NewBiDirectionalMinMatch returns a newly initialized BiDirectionalMinMatch object
 func NewBiDirectionalMinMatch(dictPath, bigramDictPath string) *BiDirectionalMinMatch {
 	return &BiDirectionalMinMatch{
 		dictPath:       dictPath,
@@ -26,12 +28,14 @@ func NewBiDirectionalMinMatch(dictPath, bigramDictPath string) *BiDirectionalMin
 	}
 }
 
+// LoadDict load dict and bigramDic that implements the Tokenizer interface
 func (bdmm *BiDirectionalMinMatch) LoadDict() error {
 	bdmm.dict.Load()
 	bdmm.bigramDic.Load()
 	return nil
 }
 
+// Get returns segmentation that implements the Tokenizer interface
 func (bdmm *BiDirectionalMinMatch) Get(text string) ([]string, error) {
 	text = strings.Trim(text, " ")
 
@@ -74,6 +78,7 @@ func (bdmm *BiDirectionalMinMatch) Get(text string) ([]string, error) {
 	return nil, nil
 }
 
+// GetFrequency returns token frequency that implements the Tokenizer interface
 func (bdmm *BiDirectionalMinMatch) GetFrequency(text string) (map[string]int, error) {
 	result, err := bdmm.Get(text)
 

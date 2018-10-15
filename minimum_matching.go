@@ -15,11 +15,13 @@ func NewMinMatch(dictPath string) *MinMatch {
 	}
 }
 
+// LoadDict loads dict that implements the Tokenizer interface
 func (mm *MinMatch) LoadDict() error {
 	mm.dict = NewDict(mm.dictPath)
 	return mm.dict.Load()
 }
 
+// Get returns segmentation that implements the Tokenizer interface
 func (mm *MinMatch) Get(text string) ([]string, error) {
 	CheckDictIsLoaded(mm.dict)
 
@@ -66,6 +68,7 @@ func (mm *MinMatch) Get(text string) ([]string, error) {
 	return result, nil
 }
 
+// GetFrequency returns token frequency that implements the Tokenizer interface
 func (mm *MinMatch) GetFrequency(text string) (map[string]int, error) {
 	result, err := mm.Get(text)
 

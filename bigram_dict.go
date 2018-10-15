@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// BigramDict records dictPath and bigram records
 type BigramDict struct {
 	dictPath string
 	isLoaded bool
@@ -15,6 +16,7 @@ type BigramDict struct {
 	records  map[string]int
 }
 
+// NewBigramDict returns a newly initialized BigramDict object
 func NewBigramDict(dictPath string) *BigramDict {
 	return &BigramDict{
 		dictPath: dictPath,
@@ -22,6 +24,7 @@ func NewBigramDict(dictPath string) *BigramDict {
 	}
 }
 
+// Load returns Bigram Dict records
 func (bd *BigramDict) Load() error {
 	if bd.isLoaded {
 		return nil

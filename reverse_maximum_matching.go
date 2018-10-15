@@ -4,22 +4,26 @@ import (
 	"strings"
 )
 
+// ReverseMaxMatch records dict and dictPath
 type ReverseMaxMatch struct {
 	dict     *Dict
 	dictPath string
 }
 
+// NewReverseMaxMatch returns a newly initialized ReverseMaxMatch object
 func NewReverseMaxMatch(dictPath string) *ReverseMaxMatch {
 	return &ReverseMaxMatch{
 		dictPath: dictPath,
 	}
 }
 
+// LoadDict loads dict that implements the Tokenizer interface
 func (rmm *ReverseMaxMatch) LoadDict() error {
 	rmm.dict = NewDict(rmm.dictPath)
 	return rmm.dict.Load()
 }
 
+// Get returns segmentation that implements the Tokenizer interface
 func (rmm *ReverseMaxMatch) Get(text string) ([]string, error) {
 
 	CheckDictIsLoaded(rmm.dict)
@@ -59,6 +63,7 @@ func (rmm *ReverseMaxMatch) Get(text string) ([]string, error) {
 	return Reverse(result), nil
 }
 
+// GetFrequency returns token frequency that implements the Tokenizer interface
 func (rmm *ReverseMaxMatch) GetFrequency(text string) (map[string]int, error) {
 	result, err := rmm.Get(text)
 

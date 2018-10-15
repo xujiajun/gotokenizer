@@ -4,22 +4,26 @@ import (
 	"strings"
 )
 
+// MaxMatch records dict and dictPath
 type MaxMatch struct {
 	dict     *Dict
 	dictPath string
 }
 
+// NewMaxMatch returns a newly initialized MaxMatch object
 func NewMaxMatch(dictPath string) *MaxMatch {
 	return &MaxMatch{
 		dictPath: dictPath,
 	}
 }
 
+// LoadDict loads dict that implements the Tokenizer interface
 func (mm *MaxMatch) LoadDict() error {
 	mm.dict = NewDict(mm.dictPath)
 	return mm.dict.Load()
 }
 
+// Get returns segmentation that implements the Tokenizer interface
 func (mm *MaxMatch) Get(text string) ([]string, error) {
 
 	CheckDictIsLoaded(mm.dict)
@@ -58,6 +62,7 @@ func (mm *MaxMatch) Get(text string) ([]string, error) {
 	return result, nil
 }
 
+// GetFrequency returns token frequency that implements the Tokenizer interface
 func (mm *MaxMatch) GetFrequency(text string) (map[string]int, error) {
 	result, err := mm.Get(text)
 

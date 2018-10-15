@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// BiDirectionalMaxMatch records dict and bigramDic etc.
 type BiDirectionalMaxMatch struct {
 	dict           *Dict
 	dictPath       string
@@ -15,6 +16,7 @@ type BiDirectionalMaxMatch struct {
 	RMM            *ReverseMaxMatch
 }
 
+// NewBiDirectionalMaxMatch returns a newly initialized BiDirectionalMaxMatch object
 func NewBiDirectionalMaxMatch(dictPath, bigramDictPath string) *BiDirectionalMaxMatch {
 	return &BiDirectionalMaxMatch{
 		dictPath:       dictPath,
@@ -26,12 +28,14 @@ func NewBiDirectionalMaxMatch(dictPath, bigramDictPath string) *BiDirectionalMax
 	}
 }
 
+// LoadDict load dict and bigramDic that implements the Tokenizer interface
 func (bdmm *BiDirectionalMaxMatch) LoadDict() error {
 	bdmm.dict.Load()
 	bdmm.bigramDic.Load()
 	return nil
 }
 
+// Get returns segmentation that implements the Tokenizer interface
 func (bdmm *BiDirectionalMaxMatch) Get(text string) ([]string, error) {
 	text = strings.Trim(text, " ")
 
@@ -74,6 +78,7 @@ func (bdmm *BiDirectionalMaxMatch) Get(text string) ([]string, error) {
 	return nil, nil
 }
 
+// GetFrequency returns token frequency that implements the Tokenizer interface
 func (bdmm *BiDirectionalMaxMatch) GetFrequency(text string) (map[string]int, error) {
 	result, err := bdmm.Get(text)
 
