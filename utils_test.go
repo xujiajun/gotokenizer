@@ -5,10 +5,10 @@ import (
 	"testing"
 )
 
-var testText = []string{"go", "for", "tokenizer", "a", "is", "go-tokenizer"}
+var testText = []string{"go", "for", "tokenizer", "a", "is", "gotokenizer"}
 
 func TestReverse(t *testing.T) {
-	expectedText := "go-tokenizer is a tokenizer for go"
+	expectedText := "gotokenizer is a tokenizer for go"
 	reality := strings.Join(Reverse(testText), " ")
 	if reality != expectedText {
 		t.Errorf(errorFormat, reality, expected)
