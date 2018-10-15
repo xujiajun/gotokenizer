@@ -1,11 +1,9 @@
 package go_tokenizer
 
 import (
-	"github.com/xujiajun/bingo/utils"
 	"reflect"
 	"strings"
 	"testing"
-
 )
 
 var (
@@ -30,7 +28,7 @@ func TestMinMatch_Get(t *testing.T) {
 func TestMinMatch_GetFrequency(t *testing.T) {
 	fmm.LoadDict()
 	result := strings.Split(expectedForForwardMinMatch, sep)
-	expected := utils.GetFrequency(result)
+	expected := GetFrequency(result)
 
 	reality, err := fmm.GetFrequency(zhText)
 	checkErr(err, t)
