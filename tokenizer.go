@@ -1,4 +1,4 @@
-package go_tokenizer
+package gotokenizer
 
 type Tokenizer interface {
 	GetFrequency(text string) (map[string]int, error)
