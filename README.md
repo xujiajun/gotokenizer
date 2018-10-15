@@ -1,4 +1,4 @@
-# go-tokenizer <a href="https://travis-ci.org/xujiajun/go-tokenizer"><img src="https://travis-ci.org/xujiajun/go-tokenizer.svg?branch=master" alt="Build Status"></a> [![Coverage Status](https://coveralls.io/repos/github/xujiajun/go-tokenizer/badge.svg?branch=master)](https://coveralls.io/github/xujiajun/go-tokenizer?branch=master)
+# go-tokenizer [![GoDoc](https://godoc.org/github.com/xujiajun/go-tokenizer?status.svg)](https://godoc.org/github.com/xujiajun/go-tokenizer) <a href="https://travis-ci.org/xujiajun/go-tokenizer"><img src="https://travis-ci.org/xujiajun/go-tokenizer.svg?branch=master" alt="Build Status"></a> [![Coverage Status](https://coveralls.io/repos/github/xujiajun/go-tokenizer/badge.svg?branch=master)](https://coveralls.io/github/xujiajun/go-tokenizer?branch=master)
 A tokenizer for Go. (Now only support chinese segmentation)
 
 ## Motivation
