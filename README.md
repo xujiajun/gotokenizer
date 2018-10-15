@@ -15,6 +15,12 @@ I wanted a simple tokenizer that has no unnecessary overhead using the standard 
 * Support Bidirectional Minimum Matching
 * Support using Stop Tokens
 
+## Installation
+
+```
+go get -u github.com/xujiajun/gotokenizer
+```
+
 ## Usage
 
 ```
