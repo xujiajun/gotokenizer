@@ -11,7 +11,7 @@ func TestReverse(t *testing.T) {
 	expectedText := "gotokenizer is a tokenizer for go"
 	reality := strings.Join(Reverse(testText), " ")
 	if reality != expectedText {
-		t.Errorf(errorFormat, reality, expected)
+		t.Errorf(errorFormat, reality, expectedText)
 	}
 }
 

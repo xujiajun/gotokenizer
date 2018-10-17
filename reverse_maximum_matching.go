@@ -8,13 +8,19 @@ import (
 type ReverseMaxMatch struct {
 	dict     *Dict
 	dictPath string
+	WordFilter WordFilter
+	EnabledFilterStopToken bool
+	StopTokens *StopTokens
 }
 
 // NewReverseMaxMatch returns a newly initialized ReverseMaxMatch object
 func NewReverseMaxMatch(dictPath string) *ReverseMaxMatch {
-	return &ReverseMaxMatch{
+	rmm := &ReverseMaxMatch{
 		dictPath: dictPath,
 	}
+	rmm.WordFilter = &NumAndLetterWordFilter{}
+
+	return rmm
 }
 
 // LoadDict loads dict that implements the Tokenizer interface
@@ -54,9 +60,20 @@ func (rmm *ReverseMaxMatch) Get(text string) ([]string, error) {
 			} else {
 				isFind = true
 			}
+
+			if rmm.WordFilter.Filter(word) {
+				isFind = true
+			}
 		}
 
-		result = append(result, word)
+		if rmm.EnabledFilterStopToken && !rmm.StopTokens.IsStopToken(word) {
+			result = append(result, word)
+		}
+
+		if !rmm.EnabledFilterStopToken {
+			result = append(result, word)
+		}
+
 		text = string([]rune(text)[0 : len([]rune(text))-len([]rune(word))])
 	}
 

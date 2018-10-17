@@ -8,13 +8,19 @@ import (
 type MaxMatch struct {
 	dict     *Dict
 	dictPath string
+	WordFilter WordFilter
+	EnabledFilterStopToken bool
+	StopTokens *StopTokens
 }
 
 // NewMaxMatch returns a newly initialized MaxMatch object
 func NewMaxMatch(dictPath string) *MaxMatch {
-	return &MaxMatch{
+	mm := &MaxMatch{
 		dictPath: dictPath,
 	}
+	mm.WordFilter = &NumAndLetterWordFilter{}
+
+	return mm
 }
 
 // LoadDict loads dict that implements the Tokenizer interface
@@ -53,9 +59,20 @@ func (mm *MaxMatch) Get(text string) ([]string, error) {
 			} else {
 				isFind = true
 			}
+
+			if mm.WordFilter.Filter(word) {
+				isFind = true
+			}
 		}
 
-		result = append(result, word)
+		if mm.EnabledFilterStopToken && !mm.StopTokens.IsStopToken(word) {
+			result = append(result, word)
+		}
+
+		if !mm.EnabledFilterStopToken {
+			result = append(result, word)
+		}
+
 		text = string([]rune(text)[len([]rune(word)):])
 	}
 
