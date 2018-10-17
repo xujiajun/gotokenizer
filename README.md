@@ -14,6 +14,7 @@ I wanted a simple tokenizer that has no unnecessary overhead using the standard 
 * Support Bidirectional Maximum Matching
 * Support Bidirectional Minimum Matching
 * Support using Stop Tokens
+* Support Custom word Filter
 
 ## Installation
 
@@ -32,12 +33,25 @@ import (
 )
 
 func main() {
-	text := "中华人民共和国万岁万岁万万岁"
-	dictPath := "/Users/xujiajun/go/src/github.com/xujiajun/gotokenizer/data/zh/dict.txt" // use your dict
+	text := "gotokenizer是一款基于字典和Bigram模型纯go语言编写的分词器，支持6种分词算法。支持stopToken过滤和自定义word过滤功能。"
+
+	dictPath := "/Users/xujiajun/go/src/github.com/xujiajun/gotokenizer/data/zh/dict.txt"
+	// NewMaxMatch default wordFilter is NumAndLetterWordFilter
 	mm := gotokenizer.NewMaxMatch(dictPath)
+	// load dict
 	mm.LoadDict()
-	result, err := mm.Get(text)
-	fmt.Println(result, err) //result: [中华人民共和国 万岁 万岁 万万岁] <nil>
+
+	fmt.Println(mm.Get(text)) //[gotokenizer 是 一款 基于 字典 和 Bigram 模型 纯 go 语言 编写 的 分词器 ， 支持 6 种 分词 算法 。 支持 stopToken 过滤 和 自定义 word 过滤 功能 。] <nil>
+
+	// enabled stop tokens
+	mm.EnabledFilterStopToken = true
+	mm.StopTokens = gotokenizer.NewStopTokens()
+	stopTokenDicPath := "/Users/xujiajun/go/src/github.com/xujiajun/gotokenizer/data/zh/stop_tokens.txt"
+	mm.StopTokens.Load(stopTokenDicPath)
+
+	fmt.Println(mm.Get(text)) //[gotokenizer 一款 字典 Bigram 模型 go 语言 编写 分词器 支持 6 种 分词 算法 支持 stopToken 过滤 自定义 word 过滤 功能] <nil>
+	fmt.Println(mm.GetFrequency(text)) //map[6:1 种:1 算法:1 过滤:2 支持:2 Bigram:1 模型:1 编写:1 gotokenizer:1 go:1 分词器:1 分词:1 word:1 功能:1 一款:1 语言:1 stopToken:1 自定义:1 字典:1] <nil>
+
 }
 
 ```
