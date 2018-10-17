@@ -8,10 +8,10 @@ import (
 
 var (
 	expectedForBiDirectionalMinMatch = "这几/块/地/面积/还/真/不小"
-	bdminm                           = NewBiDirectionalMinMatch(dictZhPath, bigramDictPath)
 )
 
 func TestBiDirectionalMinMatch_Get(t *testing.T) {
+	bdminm := NewBiDirectionalMinMatch(dictZhPath, bigramDictPath)
 	bdminm.LoadDict()
 
 	result, err := bdminm.Get(textForBiDirectionalMatch)
@@ -34,6 +34,7 @@ func TestBiDirectionalMinMatch_Get(t *testing.T) {
 }
 
 func TestBiDirectionalMinMatch_GetFrequency(t *testing.T) {
+	bdminm := NewBiDirectionalMinMatch(dictZhPath, bigramDictPath)
 	bdminm.LoadDict()
 
 	reality, err := bdminm.GetFrequency(textForBiDirectionalMatch)
