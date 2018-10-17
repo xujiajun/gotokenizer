@@ -43,7 +43,7 @@ func main() {
 
 	fmt.Println(mm.Get(text)) //[gotokenizer 是 一款 基于 字典 和 Bigram 模型 纯 go 语言 编写 的 分词器 ， 支持 6 种 分词 算法 。 支持 stopToken 过滤 和 自定义 word 过滤 功能 。] <nil>
 
-	// enabled stop tokens
+	// enabled filter stop tokens 
 	mm.EnabledFilterStopToken = true
 	mm.StopTokens = gotokenizer.NewStopTokens()
 	stopTokenDicPath := "/Users/xujiajun/go/src/github.com/xujiajun/gotokenizer/data/zh/stop_tokens.txt"
