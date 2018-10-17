@@ -6,11 +6,11 @@ import (
 
 // MaxMatch records dict and dictPath
 type MaxMatch struct {
-	dict     *Dict
-	dictPath string
-	WordFilter WordFilter
+	dict                   *Dict
+	dictPath               string
+	WordFilter             WordFilter
 	EnabledFilterStopToken bool
-	StopTokens *StopTokens
+	StopTokens             *StopTokens
 }
 
 // NewMaxMatch returns a newly initialized MaxMatch object

@@ -6,11 +6,11 @@ import (
 
 // ReverseMaxMatch records dict and dictPath
 type ReverseMaxMatch struct {
-	dict     *Dict
-	dictPath string
-	WordFilter WordFilter
+	dict                   *Dict
+	dictPath               string
+	WordFilter             WordFilter
 	EnabledFilterStopToken bool
-	StopTokens *StopTokens
+	StopTokens             *StopTokens
 }
 
 // NewReverseMaxMatch returns a newly initialized ReverseMaxMatch object
