@@ -29,6 +29,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/xujiajun/gotokenizer"
 )
 
